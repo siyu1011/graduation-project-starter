@@ -31,8 +31,8 @@ Session Cookie默认JSESSIONID、HttpOnly、SameSite=Lax，本地HTTP Secure=fal
 GET匿名可读csrf；其余业务API要求登录，/api/admin/**要求ADMIN。禁用默认HTTP Basic和HTML登录页。对未知API路径登录后返回404。CSRF过滤发生在认证之前时，缺少CSRF的写请求可返回403；未登录GET业务应返回401。不自动重放非幂等写请求。
 
 参考官方说明，并在实施时使用匹配Spring Security版本：
-- [CSRF](https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html)
-- [会话管理](https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html)
+- [CSRF](https://docs.spring.io/spring-security/reference/6.5/servlet/exploits/csrf.html)
+- [会话管理](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/session-management.html)
 
 ## 示例记录API
 
@@ -55,3 +55,7 @@ GET匿名可读csrf；其余业务API要求登录，/api/admin/**要求ADMIN。�
 新增/修改返回完整记录；删除返回data=null。不存在返回404；门户访问他人记录也返回404，避免泄漏记录存在性。管理端不限制归属。列表在数据库查询层施加owner_id条件，不在前端过滤。
 
 后端安全处理器、校验异常、业务异常与未知异常均遵循统一格式；记录有用的异常日志。未知异常统一提示“服务暂时不可用”。
+
+## 已实现补充
+
+依赖实际为Spring Security 6.5.11；安全过滤器与Controller异常均输出上述JSON协议。匿名携有效CSRF调用logout返回401。数据库等认证服务异常返回500并记录日志，不混同账号密码错误。前端遇到403只提示并清除旧Token，下一次手动提交获取新Token，不自动重放。

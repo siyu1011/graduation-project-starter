@@ -1,0 +1,4 @@
+# 仅使用新建独立测试库，导入原始演示数据后运行。
+TEST_DB_URL=jdbc:mysql://localhost:3306/graduation_starter_test?characterEncoding=UTF-8&connectionTimeZone=%2B08:00&forceConnectionTimeZoneToSession=true
+TEST_DB_USERNAME=starter_test
+TEST_DB_PASSWORD=

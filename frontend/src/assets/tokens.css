@@ -1,0 +1,18 @@
+:root {
+  --primary: #0f766e;
+  --surface: #f7f9f6;
+  --ink: #20382e;
+  --muted: #63746c;
+  --line: #e2e8e2;
+  --el-color-primary: #0f766e;
+  --el-color-primary-light-3: #579f98;
+  --el-color-primary-light-5: #87bbb6;
+  --el-color-primary-light-7: #b7d6d3;
+  --el-color-primary-light-8: #cfe4e2;
+  --el-color-primary-light-9: #e7f1f0;
+  --el-color-primary-dark-2: #0c5e58;
+  --el-border-radius-base: 6px;
+  --el-font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+  --el-text-color-primary: #20382e;
+  --el-color-danger: #ba4141;
+}

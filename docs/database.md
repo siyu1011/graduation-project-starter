@@ -60,3 +60,11 @@ README说明CREATE DATABASE、导入两个SQL的顺序与命令，提醒MySQL不
 ## 扩展
 
 后续模块建立独立业务表，复用sys_user作为必要归属；不得把demo_record当作所有选题的万能业务表。增加字段或表时补配套SQL及文档。
+
+## 实现与测试说明
+
+schema.sql与demo-data.sql已提供；演示哈希由实际BCrypt编码器生成，自动测试验证四个公开密码。第6条标题含100%_以验证LIKE元字符按文字处理。
+
+JDBC默认URL在README与application.yml固定字符集、UTC+08:00连接及会话时区。应用业务时区为Asia/Shanghai。MySQL8.0.16以前可能不执行CHECK；应用校验始终生效。
+
+集成测试仅允许独立graduation_starter_test库，由用户先导入原始演示数据；测试事务回滚，不自动清库。

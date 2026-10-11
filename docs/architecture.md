@@ -37,7 +37,7 @@ graduation-project-starter/
 │   └── vite.config.js
 ├── backend/
 │   ├── src/main/
-│   │   ├── java/com/example/
+│   │   ├── java/com/example/starter/
 │   │   │   ├── Application.java
 │   │   │   ├── auth/          登录、退出、当前用户
 │   │   │   ├── common/        统一返回、分页、异常
@@ -67,7 +67,7 @@ graduation-project-starter/
 └── README.md
 ```
 
-以上为计划目录；当前只提交 AGENTS.md、README 与 docs，代码和数据库脚本尚未创建。
+以上目录已实现；另有Maven Wrapper、前端锁文件与自动测试。实际后端包路径为 java/com/example/starter，运行说明见README。
 
 门户和管理端共享组件、账号会话和请求封装。菜单可见性由前端处理，接口访问、记录归属与业务状态由后端检查。数据库目录保存 SQL 脚本，运行数据实际保存在 MySQL 中。
 
