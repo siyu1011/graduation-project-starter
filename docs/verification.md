@@ -64,6 +64,12 @@ Windows / PowerShell；Java 17.0.12，Node 24.15.0，npm 11.12.1；Wrapper 3.3.4
 
 ## 修正与限制
 
+### 2026-10-11 登录后 CSRF 刷新失败修复
+
+认证成功后刷新 CSRF 失败时保留登录身份，显示“登录成功，但安全校验初始化失败”警告并继续进入工作空间；下一次手动写请求重新获取 Token，不重放登录。页面跳转失败也明确提示已经登录。
+
+执行 `npm test`：5项通过，覆盖登录前/后 CSRF 失败、错误密码、正常登录和返回地址校验。执行 `npm run build`：成功，仍存在既有 Element Plus 大包提示。独立无头 Chrome 以模拟接口注入登录后的 CSRF 网络失败，验证警告、工作空间跳转、用户身份保留及仅一次登录请求；此次故障注入未修改 MySQL 数据。
+
 实施中已修正PowerShell Maven参数解析、Vite 8分包配置、Java17源码生成中文编码、MySQL命名时区表缺失、MVC测试切片Mapper扫描以及Windows运行JAR文件锁问题。最终使用UTF-8演示SQL，JDBC固定UTC+08:00，应用业务时区Asia/Shanghai。
 
 MySQL8.0.12不保证执行CHECK约束。本次验证确认应用校验、归属限制、外键关系及CRUD行为；不宣称已验证新版本MySQL的CHECK执行。建议部署时使用8.0.16及以上，并核查数据库约束。

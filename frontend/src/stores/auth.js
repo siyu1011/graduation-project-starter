@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { http, clearCsrf, refreshCsrf } from "../utils/request";
+import { http, clearCsrf, refreshCsrf } from "../utils/request.js";
 
 export const useAuth = defineStore("auth", () => {
   const user = ref(null);
@@ -44,7 +44,15 @@ export const useAuth = defineStore("auth", () => {
       new URLSearchParams({ username, password }),
       { skipAuthError: true },
     );
-    await refreshCsrf();
+    try {
+      await refreshCsrf();
+      return { securityWarning: "" };
+    } catch {
+      return {
+        securityWarning:
+          "登录成功，但安全校验初始化失败。下次提交操作时会重新获取，请检查网络后重试。",
+      };
+    }
   }
   async function logout() {
     try {

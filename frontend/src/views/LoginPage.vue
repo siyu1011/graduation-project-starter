@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from "vue";
+import { ElMessage } from "element-plus";
 import { useRoute, useRouter } from "vue-router";
 import BrandLogo from "../components/BrandLogo.vue";
 import { useAuth } from "../stores/auth";
@@ -24,10 +25,17 @@ async function login() {
   busy.value = true;
   error.value = "";
   try {
-    await auth.login(form.username, form.password);
-    await router.replace(safeRedirect(route.query.redirect, auth.user.role));
+    const result = await auth.login(form.username, form.password);
+    if (result.securityWarning) ElMessage.warning(result.securityWarning);
   } catch (e) {
     error.value = e.message;
+    busy.value = false;
+    return;
+  }
+  try {
+    await router.replace(safeRedirect(route.query.redirect, auth.user.role));
+  } catch {
+    error.value = "登录成功，但页面跳转失败，请从首页进入工作空间。";
   } finally {
     busy.value = false;
   }
