@@ -83,13 +83,13 @@
 - 完成报告说明改了什么、怎样启动、实际检查结果和仍有的限制；只有核心流程通过相应验证才称为可演示。
 
 <!-- CODEGRAPH_START -->
-## CodeGraph
+## CodeGraph（可选）
 
-在代码仓库需要理解或定位代码时，先使用CodeGraph，再使用grep/find或普通文件阅读。
+CodeGraph 是辅助理解和定位代码的可选工具，不是开发前置条件。
 
-- 仅当目录有.git等仓库标记并包含源码或项目清单时，视为代码项目；不要在盘符根、主目录、纯文档、下载或临时目录初始化。
-- 已有.codegraph则使用现有索引；明确是代码项目且缺少索引时，从项目根运行codegraph init .一次。
-- 初始化失败记录原因并继续普通发现工具；不重复重试，不初始化父目录。
-- 代码修改后索引过期时运行codegraph sync .。
-- 优先使用可用的codegraph_explore、codegraph_node；否则使用codegraph explore或codegraph node。
+- 环境已安装并且工具可用时，优先使用现有索引及 codegraph_explore、codegraph_node，或 codegraph explore、codegraph node。
+- 未安装、工具不可用或运行失败时，直接使用 rg、文件阅读等普通工具继续工作，无需安装、反复重试或因此暂停任务。
+- 使用时仅在有仓库标记且包含源码或项目清单的项目根目录操作，不在盘符根、主目录或无关目录初始化。
+- 已有 .codegraph 时复用索引；缺少索引且工具可用时，可以运行 codegraph init .。
+- 代码修改后索引过期且后续仍需使用时，可以运行 codegraph sync .。
 <!-- CODEGRAPH_END -->
