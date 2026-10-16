@@ -108,6 +108,8 @@ Session Cookie使用HttpOnly、SameSite=Lax，本地HTTP的Secure=false；空闲
 
 ## 复用
 
+完整开发流程、各阶段产出与验收条件见[毕业设计开发 SOP](docs/starter-development-sop.md)，包含从选题、需求、视觉与计划到业务开发、测试和交付的执行步骤及可复用指令。
+
 保留认证、请求封装、统一返回和布局；替换modules.example、门户与管理业务页面及配套SQL。新选题建立自己的业务表和专属规则，准备演示数据并验证完整流程，不把demo_record作为万能业务表。
 
 项目名称集中在frontend/src/config.js，菜单保持静态配置。同步维护接口、数据库、README与验证记录。
