@@ -93,3 +93,11 @@ CodeGraph 是辅助理解和定位代码的可选工具，不是开发前置条�
 - 已有 .codegraph 时复用索引；缺少索引且工具可用时，可以运行 codegraph init .。
 - 代码修改后索引过期且后续仍需使用时，可以运行 codegraph sync .。
 <!-- CODEGRAPH_END -->
+
+## 随仓库提供的项目级技能与 SOP
+
+- 完整流程见 `docs/毕业设计全流程SOP.md`；工程实施细节见 `docs/starter-development-sop.md`。
+- 编写或修订毕业报告时读取 `.agents/skills/graduation-report/SKILL.md`，按当前学校模板及实际项目执行。
+- 制作架构、流程、功能模块、E-R、状态等图表时读取 `.agents/skills/diagram-design/SKILL.md` 及相应参考。
+- 两个技能随项目保存在 `.agents/skills/`，无需安装至个人目录；报告技能优先使用同级图表技能，不依赖原开发者的绝对路径。
+- 复制底座及制作源码包时保留完整 `.agents/skills/`（含参考、素材、脚本及许可证）。使用方式和环境要求见 `docs/project-skills.md`。

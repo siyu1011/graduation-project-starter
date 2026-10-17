@@ -115,3 +115,9 @@ Session Cookie使用HttpOnly、SameSite=Lax，本地HTTP的Secure=false；空闲
 项目名称集中在frontend/src/config.js，菜单保持静态配置。同步维护接口、数据库、README与验证记录。
 
 设计文档：[范围](docs/plan.md)、[架构](docs/architecture.md)、[技术栈](docs/tech-stack.md)、[页面](docs/pages.md)、[数据库](docs/database.md)、[实施验收](docs/implementation.md)。
+
+## 从选题到交付
+
+[毕业设计全流程 SOP](docs/毕业设计全流程SOP.md) 覆盖接题、需求、视觉、计划、开发、验证、简化启动、报告、项目简介、答辩 PPT、打包与接收者验收。
+
+仓库随附两个项目级技能：`graduation-report` 与 `diagram-design`，完整文件保存在 `.agents/skills/`。拉取后在项目中使用，无需安装到个人目录，详见 [技能使用说明](docs/project-skills.md)。
